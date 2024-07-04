@@ -3,50 +3,52 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<!-- bean definitions here -->
 
 
-	<bean name="emp1" class="com.spring.collections.Emp">
-		<property name="name" value="Radhe"></property>
-		
+	<!--standalone list -->
+	
+	<util:list list-class="java.util.LinkedList" id="mybff">
+	
+		<value>aman</value>
+		<value>ajay</value>
+		<value>aryan</value>
+		<value>amrish</value>
 
+	</util:list>
 
-		<property name="phoneno">
-			<list>
-				<value>1323235656</value>
-				<value>2555265552</value>
-				<value>5655554146</value>
-			</list>
-		</property>
-
-		<property name="address">
-			<set>
-				<value>pune</value>
-				<value>latur</value>
-				<value>mumbai</value>
-			</set>
-		</property>
-
-		<property name="courses">
-			<map>
-				<entry key="java" value="2 months"></entry>
-				<entry key="python" value="1 month"></entry>
-				<entry key="c" value="1 month"></entry>
-			</map>
-		</property>
-
-		<property name="props">
-			<props>
-				<prop key="name"> durgesh</prop>
-				<prop key="channel">learn with durgesh</prop>
-				<prop key="location">youtube</prop>
-			</props>
-		</property>
-
+	<bean class="com.spring.collections.standalone.Person" name="p1">
+		<property name="friends" ref="mybff"></property>
 	</bean>
+
+
+	<!-- standalone map -->
+
+	<util:map map-class="java.util.Hashmap" id="fees">
+		<entry key="springboot" value="2000" />
+		<entry key="python" value="5000" />
+	</util:map>
+
+	<bean class="com.spring.collections.standalone.Person" name="p1">
+		<property name="feestructure" ref="fees"></property>
+	</bean>
+
+	<!-- standalone properties -->
+	<util:properties id="dbconfig">
+		<prop key="driver">com.mysql.jdbc.Driver</prop>
+		<prop key="url"> mysql:jdbc://localhost:3306/db</prop>
+	</util:properties>
+	<bean class="com.spring.collections.standalone.Person" name="p1">
+		<property name="properties" ref="dbconfig"></property>
+	</bean>
+
+	
 </beans>
  
 

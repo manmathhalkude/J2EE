@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
@@ -23,30 +22,31 @@
 
 	</util:list>
 
-	<bean class="com.spring.collections.standalone.Person" name="p1">
+	<bean class="com.springcore.standalonecollection.Person" name="p1">
 		<property name="friends" ref="mybff"></property>
 	</bean>
 
 
-	<!-- standalone map -->
 
-	<util:map map-class="java.util.Hashmap" id="fees">
+
+	
+
+	<!-- <util:map map-class="java.util.Hashmap" id="fees">
 		<entry key="springboot" value="2000" />
 		<entry key="python" value="5000" />
 	</util:map>
-
-	<bean class="com.spring.collections.standalone.Person" name="p1">
+	 <bean class="com.springcore.standalonecollection.Person" name="p3">
 		<property name="feestructure" ref="fees"></property>
 	</bean>
 
-	<!-- standalone properties -->
 	<util:properties id="dbconfig">
 		<prop key="driver">com.mysql.jdbc.Driver</prop>
 		<prop key="url"> mysql:jdbc://localhost:3306/db</prop>
 	</util:properties>
-	<bean class="com.spring.collections.standalone.Person" name="p1">
+	<bean class="com.springcore.standalonecollection.Person" name="p2">
 		<property name="properties" ref="dbconfig"></property>
-	</bean>
+	</bean> 
+	-->
 
 	
 </beans>

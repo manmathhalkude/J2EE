@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestCollections {
 
 	public static void main(String[] args) {
-   ApplicationContext context = new ClassPathXmlApplicationContext("/collectionconfig.xml");
+   ApplicationContext context = new ClassPathXmlApplicationContext("/configcoll.xml");
    System.out.println("hello");
      
 		Emp emp1 =(Emp) context.getBean("emp1");
